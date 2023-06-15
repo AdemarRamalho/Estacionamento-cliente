@@ -1,7 +1,8 @@
-import { Condutor } from "./condutor";
-import { Veiculo } from "./veiculo";
+import { AbstractEntity } from "./Abstract.entity";
+import { Condutor } from "./Condutor";
+import { Veiculo } from "./Veiculo";
 
-export class Movimentacao {
+export class Movimentacao extends AbstractEntity {
 
     veiculo! : Veiculo
     condutor! : Condutor
