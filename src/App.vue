@@ -1,15 +1,16 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-success nav-underline">
+<nav class="navbar navbar-expand-lg cor-nav nav-underline">
   <div class="container-fluid">
    
-    <a class="navbar-brand" href="#">PedroParking</a>
+    <a class="navbar-brand" href="#">
+      <img class="logo-inicio" src="./assets/logo.jpeg"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item menu-gap">
           <a class="nav-link active" aria-current="page" href="#">Menu</a>
         </li>
 
@@ -29,12 +30,6 @@
           </ul>
         </li> 
       </ul>
-
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-dark" type="submit">Buscar</button>
-      </form>
-
     </div>
   </div>
 </nav>
@@ -56,10 +51,10 @@ nav {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color:#42b983;
     }
   }
 
@@ -67,4 +62,12 @@ nav {
     text-align: center;
   }
 }
+.cor-nav{
+    background-color: #1b1a1f;
+  }
+  .logo-inicio{
+    width: 40%;
+    right: 50%;
+    margin-left: 30%;
+  }
 </style>
