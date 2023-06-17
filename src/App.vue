@@ -19,13 +19,13 @@
             Itens
           </a>
           <ul class="dropdown-menu" >
-            <li><a  class="dropdown-item" href="#">Movimentações</a></li>
+            <li><a class="dropdown-item" href="#">Movimentações</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
+            <li><a  class="dropdown-item" href="#"> <RouterLink to="/condutor-lista">Condutores</RouterLink></a></li>
             <li><a  class="dropdown-item" href="#">Veiculos</a></li>
             <li><a  class="dropdown-item" href="#">Configurações</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
+            <li><a  class="dropdown-item" href="#" ><router-link to="/lista-marca">Marca</router-link></a></li>
             <li><a  class="dropdown-item" href="#">Modelo</a></li>
           </ul>
         </li> 
@@ -33,8 +33,7 @@
     </div>
   </div>
 </nav>
-
-
+<router-view/>
 
 </template>
 
@@ -51,10 +50,10 @@ nav {
 
   a {
     font-weight: bold;
-    color: #ffffff;
+    color: #070202;
 
     &.router-link-exact-active {
-      color:#42b983;
+      color:#000201;
     }
   }
 
