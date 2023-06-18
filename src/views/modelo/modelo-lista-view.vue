@@ -1,10 +1,7 @@
 <template>
         <div class="flex:none">
-        <h1>Modelo</h1>
+        <h1 class="d-flex justify-content-center">Modelo</h1>
     <div>
-        <router-link to="/">
-            <button type="button" class="btn btn-outline-success">Cadastrar</button>
-        </router-link>
         <table class="table table-striped table-dark table-bordered table-md table-responsive ">
             <thead class="thead-dark">
                 <tr>
@@ -21,10 +18,9 @@
                     <th scope="row">wolksvagen</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn">Editar</button>
+                            <button type="button" class="btn btn-warning">Editar</button>
                         </router-link>
-                        <button type="button" class="btn">Excluir</button>
-                        <button type="button" class="btn">Cadastrar</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
                 <tr>
@@ -33,10 +29,9 @@
                     <th scope="row">Fiat</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn btn-editar">Editar</button>
+                            <button type="button" class="btn btn-warning">Editar</button>
                         </router-link>
-                        <button type="button" class="btn btn-excluir">Excluir</button>
-                        <button type="button" class="btn btn-cadastrar">Cadastrar</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
                 <tr>
@@ -45,14 +40,16 @@
                     <th scope="row">volvo</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn">Editar</button>
+                            <button type="button" class="btn btn-warning">Editar</button>
                         </router-link>
-                        <button type="button" class="btn">Excluir</button>
-                        <button type="button" class="btn">Cadastrar</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
             </tbody>
         </table>
+        <router-link to="/">
+            <button type="button" class="btn  button-cadastrar btn-outline-success">Cadastrar</button>
+        </router-link>
     </div>
     </div>
 </template>
@@ -60,3 +57,15 @@
 <script lang="ts">
 
 </script>
+
+<style lang="scss">
+
+h1{
+    color:rgb(255, 255, 255);
+    background: #1b1a1f;
+}
+.button-cadastrar{
+    background: #1b1a1f;
+    color:white;
+}
+</style>
