@@ -23,9 +23,8 @@
                     <th scope="row">22:22</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-warning">Finalizar</button>
                         </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
                 <tr>
@@ -36,9 +35,8 @@
                     <th scope="row">22:22</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-success">Finalizada</button>
                         </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
                 <tr>
@@ -49,15 +47,14 @@
                     <th scope="row">22:22</th>
                     <th scope="row">
                         <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-warning">Finalizar</button>
                         </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
                     </th>
                 </tr>
             </tbody>
         </table>
-        <router-link to="/">
-            <button type="button" class="btn button-cadastrar btn-outline-success">Cadastrar</button>
+        <router-link to="/movimentacao-form">
+            <button type="button" class="btn button-cadastrar btn-outline-success">Iniciar Moviemantação</button>
         </router-link>
     </div>
     </div>

@@ -52,7 +52,7 @@
                 </tr>
             </tbody>
         </table>
-        <router-link to="/">
+        <router-link to="/condutor-form">
             <button type="button" class="btn button-cadastrar btn-success">Cadastrar</button>
         </router-link>
     </div>

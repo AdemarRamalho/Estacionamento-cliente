@@ -43,7 +43,7 @@
                 </tr>
             </tbody>
         </table>
-        <router-link to="">
+        <router-link to="/form-marca">
         <button type="button" class="btn button-cadastrar btn-outline-success">Cadastrar</button>
     </router-link>
     </div>

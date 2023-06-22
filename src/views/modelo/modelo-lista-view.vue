@@ -47,7 +47,7 @@
                 </tr>
             </tbody>
         </table>
-        <router-link to="/">
+        <router-link to="/modelo-form">
             <button type="button" class="btn  button-cadastrar btn-outline-success">Cadastrar</button>
         </router-link>
     </div>
