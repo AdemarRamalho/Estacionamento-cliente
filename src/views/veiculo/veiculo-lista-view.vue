@@ -1,86 +1,265 @@
 <template>
-        <div class="flex:none">
-        <h1 class="d-flex justify-content-center">Veiculos</h1>
-    <div>
-        <table class="table table-striped table-dark table-bordered table-md table-responsive ">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">nome</th>
-                    <th scope="col">modelo</th>
-                    <th scope="col">placa</th>
-                    <th scope="col">cor</th>
-                    <th scope="col">tipo</th>
-                    <th scope="col">ano</th>
-                    <th scope="col">funções</th>
-                </tr>
-            </thead>
-            <tbody class="table-striped">
-                <tr>
-                    <th scope="row">1</th>
-                    <th scope="row">fusca</th>
-                    <th scope="row">wolksvagen</th>
-                    <th scope="row">ABT3N43</th>
-                    <th scope="row">Prata</th>
-                    <th scope="row">Carro</th>
-                    <th scope="row">2023</th>
-                    <th scope="row">
-                        <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
-                        </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                    </th>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <th scope="row">uno</th>
-                    <th scope="row">Fiat</th>
-                    <th scope="row">ERC3D43</th>
-                    <th scope="row">Prata</th>
-                    <th scope="row">Carro</th>
-                    <th scope="row">2023</th>
-                    <th scope="row">
-                        <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
-                        </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                    </th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th scope="row">Gol</th>
-                    <th scope="row">wolksvagen</th>
-                    <th scope="row">DBT3N23</th>
-                    <th scope="row">Prata</th>
-                    <th scope="row">Carro</th>
-                    <th scope="row">2023</th>
-                    <th scope="row">
-                        <router-link to="">
-                            <button type="button" class="btn btn-warning">Editar</button>
-                        </router-link>
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        <router-link to="/veiculo-form">
-            <button type="button" class="btn button-cadastrar btn-outline-success">Cadastrar</button>
-        </router-link>
+
+    <div class="container tabela">
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col opcoes">
+                    Lista de Marcas
+                </div>
+                <div class="col opcoes">  
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Listar por</option>
+                        <option value="1">Ativos</option>
+                        <option value="2">Desativados</option>
+                    </select>
+                </div>
+                <div class="col opcoes">
+                    <router-link to='/veiculo-form'>
+                        <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Veiculo</button>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row inicio">
+            <div class="col"> ID       </div>
+            <div class="col"> Situação </div>
+            <div class="col"> Nome </div>
+            <div class="col"> Modelo </div>
+            <div class="col"> Placa </div>
+            <div class="col"> Cor </div>
+            <div class="col"> Tipo </div>
+            <div class="col"> Ano </div>
+            <div class="col"> Opções</div>
+        </div>
+    
+        <div class="row itens">
+            <div class="col"> 1       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> XC40 </div>
+            <div class="col"> Volvo </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <div class="row itens">
+            <div class="col"> 2       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> A4 </div>
+            <div class="col">  Audi </div>
+            <div class="col">  BTA-3A30 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <div class="row itens">
+            <div class="col"> 3       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> 911 </div>
+            <div class="col">  Porsche </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+        
+        <div class="row itens">
+            <div class="col"> 4       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> FUSION </div>
+            <div class="col">  Ford </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <div class="row itens">
+            <div class="col"> 5       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> UNO </div>
+            <div class="col">  Fiat </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+        <div class="row itens">
+            <div class="col"> 6       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> X4 </div>
+            <div class="col">  BMW </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+    
+        <div class="row itens">
+            <div class="col"> 7       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> FESTBACK </div>
+            <div class="col">  Fiat </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
+        
+        <div class="row itens">
+            <div class="col"> 8       </div>
+            <div class="col situacao"> Ativo </div>
+            <div class="col"> Civic </div>
+            <div class="col">  Honda </div>
+            <div class="col"> ASD-3A00 </div>
+            <div class="col"> Preta </div>
+            <div class="col"> Carro </div>
+            <div class="col"> 2023 </div>
+            <div class="col dropdown">
+                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
+                <div class="dropdown-menu">
+                    <button class="dropdown-item">Excluir</button>
+                    <button type="button" class="dropdown-item">Editar</button>
+                </div> 
+            </div>
+        </div>
     </div>
-    </div>
-</template>
+    
+    </template>
+    
+    <script lang="ts">
+    
+    
+    </script>
+    
+    <style scoped>
+    
+    .tabela{
+        margin-top: 2vw;
+        background-color: WHITE;
+        height: 75vh;
+        border-radius: 6px;
+    
+    }
+    
+    .inicio{
+        background-color: rgba(128, 128, 128, 0.144);
+        color: grey;
+        font-family: 'Lato';
+        text-align: center;
+        align-items: center;
+        font-size: 10px;
+        font-weight: bolder;
+        border-radius: 5px;
+        margin: 2vh;
+        height: 5vh;
+      
+    }
+    
+    .itens{
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        border-radius: 5px;
+        margin: 2vh;
+        transition: 2s;
+        height: 5vh;
+        
+    }
+    
+    .col{
+        font-size: 15px;
+        font-weight: 100;
+        font-family: 'Lato';
+    }
+    
 
-<script lang="ts">
-
-</script>
-<style lang="scss">
-
-h1{
-    color:rgb(255, 255, 255);
-    background: #1b1a1f;
-}
-.button-cadastrar{
-    background: #1b1a1f;
-    color:white;
-}
-</style>
+    
+    .page-link{
+        width: 2vw;
+        color: black;
+    }
+    
+    .pagination{
+        margin-top: 5vw;
+        justify-content: center;
+    }
+    
+    .opcoes{
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 2vw;
+        font-size: 4vh;
+        font-weight: bolder;
+    }
+    
+    
+    .situacao{
+        color: green;
+        font-weight: bolder;
+        background-color: rgba(0, 128, 0, 0.349);
+        border-radius: 5px;
+       
+    }
+    
+    .botao-cadastrar{
+        height: 2.5vh;
+        align-items: center;
+        margin-right: 1vh;
+    }
+    
+    </style>

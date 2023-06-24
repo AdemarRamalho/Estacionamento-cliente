@@ -12,11 +12,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item menu-gap">
-          <a class="nav-link active" aria-current="page" href="#"> <router-link to="movimentacao-lista">Menu </router-link> </a>
+          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista">Menu </router-link> </a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+          <a class="nav-link dropdown-toggle" id="cor-texto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
             Itens
           </a>
           <ul class="dropdown-menu" >
@@ -24,7 +24,7 @@
             <li><hr class="dropdown-divider"></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <routerLink to="/condutor-lista">Condutores</RouterLink></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/veiculo-lista">Veiculos </router-link></h2></li>
-            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="configuracao-lista">Configurações </router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/configuracao-form">Configurações </router-link></h2></li>
             <li><hr class="dropdown-divider"></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/lista-marca">Marca</router-link></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/modelo-lista">Modelo </router-link></h2></li>
@@ -71,5 +71,8 @@ nav {
     width: 40%;
     right: 50%;
     margin-left: 30%;
+  }
+  #cor-texto{
+    color: white;
   }
 </style>
