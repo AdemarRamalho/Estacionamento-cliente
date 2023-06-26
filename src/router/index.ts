@@ -67,6 +67,11 @@ component:() => import('../views/condutor/condutor-list-view.vue')
   name: 'veiculo-form-view',
   component:() => import('../views/veiculo/veiculo-form-view.vue')
 },
+{
+path: '/movimentacao-cadastrar',
+name: 'movimentacao-cadastrar-finalizar',
+component: () => import(/* webpackChunkName: "about" */ '../views/movimentacao/Movimentacao-finalizar-view.vue'),
+},
 ]
 
 const router = createRouter({

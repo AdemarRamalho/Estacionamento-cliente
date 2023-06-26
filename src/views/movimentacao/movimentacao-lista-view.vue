@@ -15,9 +15,9 @@
                 </select>
             </div>
             <div class="col opcoes">
-                <router-link to='/movimentacao-form'>
-                    <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Movimentação</button>
-                </router-link>
+                <Router-link to='/movimentacao-form'>
+                    <button type="button" class="btn btn-success ">Adicionar Movimentação</button>
+                </Router-link>
             </div>
         </div>
     </div>

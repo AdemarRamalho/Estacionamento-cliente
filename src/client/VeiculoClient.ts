@@ -1,7 +1,7 @@
 import { Veiculo } from "@/model/Veiculo";
 import axios, { AxiosInstance } from "axios";
 
-export class Veiculoclient{
+export class VeiculoClient{
 
     private axiosClient: AxiosInstance;
 
@@ -15,6 +15,22 @@ export class Veiculoclient{
     public async findById(id: number) : Promise<Veiculo> {
         try {
             return (await this.axiosClient.get<Veiculo>(`/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+
+	public async listaAll(): Promise<any[]> {
+        try {
+            return (await this.axiosClient.get<Veiculo[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+
+	public async listaAllAtivos(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Veiculo[]>(`/lista/ativos`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -43,6 +59,7 @@ export class Veiculoclient{
 			return Promise.reject(error.response)
 		}
 	}
+	
 
     public async ativar(Veiculo: Veiculo): Promise<void> {
 		try {
@@ -53,3 +70,4 @@ export class Veiculoclient{
 	}
 
 }
+export default new VeiculoClient();

@@ -1,119 +1,180 @@
 <template>
-    <div class="container tabela">
-        <div class="container text-center">
-            <div class="opcoes">
-                Cadastrar Configuração
-            </div>
 
-            <form>
-                <div class="row">
-                    <label for="valorHora" class="col-2 col-sm-2 dado mb-4">Valor Hora</label>     
-                        <div class="col-2 col-sm-3">
-                            <input type="number" class="form-control input">
-                        </div>    
-                    <label for="valorMinutoMulta" class="col-2 col-sm-3 dado">Valor Minuto Multa</label>
-                        <div class="col-2 col-sm-3">
-                             <input type="number" class="form-control input">
-                        </div>
-                </div>
-                    
-                <div class="row">
-                    <label for="abertura" class="col-2 col-sm-2 dado mb-4">Abertura</label>     
-                        <div class="col-2 col-sm-3">
-                            <input type="time" class="form-control input">
-                        </div>    
-                    <label for="fechamento" class="col-2 col-sm-3 dado">Fechamento</label>
-                        <div class="col-2 col-sm-3">
-                             <input type="time" class="form-control input">
-                        </div>
-                </div>
-
-                    
-                <div class="row">
-                    <label for="tempoParaDesconto" class="col-2 col-sm-3 dado mb-4">Tempo para Desconto</label>     
-                        <div class="col-2 col-sm-2">
-                            <input type="time" class="form-control input">
-                        </div>    
-                    <label for="tempoDeDesconto" class="col-2 col-sm-3 dado">Tempo de Desconto</label>
-                        <div class="col-2 col-sm-3">
-                             <input type="time" class="form-control input">
-                        </div>
-                </div>
-
-                <div class="row">
-                    <label for="gerarDesconto" class="col-2 col-sm-3 dado mb-4">Gerar Desconto</label>     
-                        <div class="col-2 col-sm-2 form-switch">
-                            <input class="form-check-input dado" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        </div>    
-                    <label for="vagasMoto" class="col-2 col-sm-3 dado">Vagas Moto</label>
-                        <div class="col-2 col-sm-3">
-                             <input type="number" class="form-control input">
-                        </div>
-                </div>
-
-                <div class="row">
-                    <label for="vagasCarro" class="col-2 col-sm-2 dado mb-4">Vagas Carro</label>     
-                        <div class="col-2 col-sm-3">
-                            <input type="number" class="form-control input">
-                        </div>    
-                    <label for="vagasVan" class="col-2 col-sm-3 dado">Vagas Van</label>
-                        <div class="col-2 col-sm-3">
-                             <input type="number" class="form-control input">
-                        </div>
-                </div>
-
-            </form>
-            <div>
-                <button type="submit" class="btn btn-outline-success botao">Cadastrar</button>
-            </div>
+    <div class="container" style="background: ;">
+  
+      <div class="row">
+        <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar Configuracao </p> </div>
+        <div class="col-md-2"> </div>
+      </div>
+  
+      <hr/>
+  
+      <div v-if="mensagem.ativo" class="row">
+        <div class="col-md-12 text-start">
+          <div :class="mensagem.css" role="alert">
+            <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>
-    </div>    
-</template>
-    
-<script lang="ts">
-    
-    
-</script>
-    
-<style scoped>
-    
-form{
-    padding-top: 5%;
-}
-
-.tabela{
-    margin-top: 2vw;
-    background-color: WHITE;
-    height: 75vh;
-    border-radius: 6px;
-}
-
-.input{
-    margin: 0%;
-}
- 
-.opcoes{
-    align-items: center;
-    text-align: center;
-    color:black;
-    padding: 2vw;
-    font-size: 3vh;
-    font-weight:bolder;
-    text-align: left;
-}
-
-.dado{
-    color:black;
-    padding-left: 4vw;
-    font-size: 2.5vh;
-    font-weight: bolder;
-    text-align: left;
-}
-
-.botao{
-    font-weight: bolder;
-    margin-top: 5%;
-    font-size: 2.5vh;
-    transition: 1s;
-}
-</style>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 text-start">
+          <label class="form-label">Valor da Hora*</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.valorHora">
+           <label class="form-label">Valor da Multa por Minuto*</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.valorMinutoMulta">
+          <div class="w-100"></div>
+           <label class="form-label">Inicio Expediente</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.inicioExpediente">
+          
+          
+           <label class="form-label">Fim Expediente</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.fimExpediente">
+          
+  
+           <label class="form-label">Vagas Moto</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagasMoto">
+          
+  
+           <label class="form-label">Vagas Carro</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagasCarro">
+           
+           <label class="form-label">Vagas Van</label>
+          <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagasVan">
+  
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-3 offset-md-6"> 
+          <div class="d-grid gap-2">
+            <router-link type="button" class="btn btn-info" 
+              to="/configuracao-lista">Voltar
+            </router-link>
+          </div>
+        </div>
+        <div class="col-md-3 "> 
+          <div class="d-grid gap-2">
+            <button v-if="this.form === undefined" type="button" 
+                class="btn btn-success" @click="onClickCadastrar()">
+              Cadastrar 
+            </button>
+            <button v-if="this.form === 'editar'" type="button" 
+                class="btn btn-warning" @click="onClickEditar()">
+              Editar 
+            </button>
+            <button v-if="this.form === 'excluir'" type="button" 
+                class="btn btn-danger" @click="onClickExcluir()">
+              Excluir 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </template>
+  
+  <script lang="ts">
+  
+  import ConfiguracaoClient from '@/client/ConfiguracaoClient';
+  import MarcaClient from '@/client/MarcaClient';
+  import ModeloClient from '@/client/ModeloClient';
+  import { Configuracao } from '@/model/Configuracao';
+  import { Marca } from '@/model/Marca';
+  import { Modelo } from '@/model/Modelo';
+  import { defineComponent } from 'vue';
+  
+  export default defineComponent({
+    name: 'ModeloFormulario',
+    data() {
+      return { 
+        configuracao: new Configuracao(),
+        marcasList: [],
+        mensagem: {
+          ativo: false as boolean,
+          titulo: "" as string,
+          mensagem: "" as string,
+          css: "" as string
+        }
+      }
+    },
+    computed: {
+      id () {
+        return this.$route.query.id
+      },
+      form () {
+        return this.$route.query.form
+      }
+    },
+    mounted() { 
+  
+      if(this.id !== undefined){
+        this.findById(Number(this.id));
+      }
+  
+  
+    },
+    methods: {
+  
+      onClickCadastrar(){
+        ConfiguracaoClient.cadastrar(this.configuracao)
+          .then(sucess => {
+            this.configuracao = new Configuracao()
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = sucess;
+            this.mensagem.titulo = "Parabens. ";
+            this.mensagem.css = "alert alert-success alert-dismissible fade show";
+          })
+          .catch(error => {
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = error;
+            this.mensagem.titulo = "Error. ";
+            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+          });
+      },
+      findById(id: number){
+        ConfiguracaoClient.findById(id)
+          .then(sucess => {
+            this.configuracao = sucess
+          })
+          .catch(error => {
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = error;
+            this.mensagem.titulo = "Error. ";
+            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+          });
+      },
+      onClickEditar(){
+        ConfiguracaoClient.editar(this.configuracao.id, this.configuracao)
+          .then(sucess => {
+            this.configuracao = new Configuracao()
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = sucess;
+            this.mensagem.titulo = "Parabens. ";
+            this.mensagem.css = "alert alert-success alert-dismissible fade show";
+          })
+          .catch(error => {
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = error;
+            this.mensagem.titulo = "Error. ";
+            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+          });
+      },
+      onClickExcluir(){
+        ConfiguracaoClient.excluir(this.configuracao.id)
+          .then(sucess => {
+            this.configuracao = new Configuracao()
+            this.$router.push({ name: 'ConfiguracaoListView' });
+          })
+          .catch(error => {
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = error;
+            this.mensagem.titulo = "Error. ";
+            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+          });
+      }
+    }
+  });
+  
+  </script>

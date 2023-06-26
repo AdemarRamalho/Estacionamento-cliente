@@ -27,6 +27,20 @@ export class ConfiguracaoClient{
 			return Promise.reject(error.response)
 		}
 	}
+    public async listaAll(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Configuracao[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+    public async excluir(id: number): Promise<string> {
+        try {
+            return (await this.axiosClient.delete<string>(`/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
 	public async editar(Configuracao: Configuracao): Promise<void> {
 		try {
@@ -37,3 +51,4 @@ export class ConfiguracaoClient{
 	}
 
 }
+export default new ConfiguracaoClient();
