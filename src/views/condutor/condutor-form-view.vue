@@ -8,7 +8,6 @@
     </div>
 
     <hr/>
-
     <div v-if="mensagem.ativo" class="row">
       <div class="col-md-12 text-start">
         <div :class="mensagem.css" role="alert">
@@ -17,7 +16,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-md-6 text-start">
         <label class="form-label">Nome</label>
@@ -81,7 +80,7 @@ export default defineComponent({
       mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
-        mensagem: "" as string,
+        mensagem: "" as string
         css: "" as string
       }
     }

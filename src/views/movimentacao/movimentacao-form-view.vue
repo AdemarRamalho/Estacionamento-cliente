@@ -8,20 +8,16 @@
       </div>
   
       <hr />
+
       <div v-if="mensagem.ativo" class="row">
-        <div class="col-md-12 text-start">
-          <div :class="mensagem.css" role="alert">
-            <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
+      <div class="col-md-12 text-start">
+        <div :class="mensagem.css" role="alert">
+          <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       </div>
-  
+    </div>
+
       <div class="row">
         <div class="col-md-6 text-start">
           <label>Condutores </label> <br />

@@ -72,5 +72,6 @@ export class CondutorClient{
             return Promise.reject(error.response)
         }
     }
+    
 } 
 export default new CondutorClient();
