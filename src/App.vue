@@ -3,7 +3,8 @@
   <div class="container-fluid">
    
     <a class="navbar-brand" href="#">
-      <img class="logo-inicio" src="./assets/logo.jpeg"></a>
+      <img class="logo-inicio" src="./assets/logo.jpeg">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,48 +12,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item menu-gap">
-          <a class="nav-link active" id="cor-texto" aria-current="page" href="#">Menu</a>
+          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista"> Home </router-link> </a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id ="cor-texto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+          <a class="nav-link dropdown-toggle" id="cor-texto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
             Itens
           </a>
           <ul class="dropdown-menu" >
-            <li><routerLink to="/movimentacoes"><a  class="dropdown-item">Movimentações</a></routerLink></li>
+            <li><h2 class="dropdown-item" href="#" id="nav-menu"> <router-link to="movimentacao-lista">Movimentações </router-link> </h2> </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
-            <li><a  class="dropdown-item" href="#">Veiculos</a></li>
-            <li><a  class="dropdown-item" href="#">Configurações</a></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <routerLink to="/condutor-lista">Condutores</RouterLink></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/veiculo-lista">Veiculos </router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/configuracao-form">Configurações </router-link></h2></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
-            <li><a  class="dropdown-item" href="#">Modelo</a></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/lista-marca">Marca</router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/modelo-lista">Modelo </router-link></h2></li>
+            
           </ul>
         </li> 
       </ul>
     </div>
   </div>
 </nav>
-<form>
-  <div class="row">
-  <div class="form-group col-md-4 offset-md-4">
-    <label for="name">Nome</label>
-    <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Nome">
-  </div>
-  <div class="form-group col-md-4 offset-md-4">
-    <label for="email">Email</label>
-    <input type="name" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu Email">
-  </div>
-  <div class="form-group col-md-4 offset-md-4">
-    <label for="Senha">Senha</label>
-    <input type="password" class="form-control" id="Senha" placeholder="senha">
-  </div>
-  <button type="submit" class="btn btn-primary col-md-1 offset-md-4"></button>
-  <button type="submit" class="btn btn-primary col-md-1 offset-md-7">Voltar</button>
-</div>
-</form>
-
-
+<router-view/>
 </template>
 
 <style lang="scss">
@@ -65,18 +48,20 @@
 
 nav {
   padding: 30px;
-
-  a {
+  #nav-menu{
+    text-decoration: none;
+    color: black;
     font-weight: bold;
-    color: #ffffff;
+    font-size: 100%;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #070202;
 
     &.router-link-exact-active {
-      color:#f7f7f7;
+      color:#000201;
     }
-  }
-
-  .topo{
-    text-align: center;
   }
 }
 .cor-nav{
@@ -87,7 +72,7 @@ nav {
     right: 50%;
     margin-left: 30%;
   }
-  #cor-texto {
+  #cor-texto{
     color: white;
   }
 </style>
