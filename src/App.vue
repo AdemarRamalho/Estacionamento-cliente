@@ -35,6 +35,7 @@
     </div>
   </div>
 </nav>
+<RouterView/>
 
 
 
@@ -62,7 +63,7 @@ nav {
     color: #070202;
 
     &.router-link-exact-active {
-      color:#42b983;
+      color:#000201;
     }
   }
 }
@@ -75,6 +76,6 @@ nav {
     margin-left: 30%;
   }
   #cor-texto {
-    color: white;
+    color: rgb(255, 243, 243);
   }
 </style>
