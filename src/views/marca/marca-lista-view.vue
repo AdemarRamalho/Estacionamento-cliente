@@ -28,115 +28,61 @@
             <div class="col"> Detalhes</div>
         </div>
     
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Honda </div>
+        <div v-for="item in marcasList" :key="item.id" class="row itens">
+            <div class="col"> {{ item.id }}       </div>
+            <div class="col situacao">
+                <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+                <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+            </div>
+            <div class="col"> {{item.nome}} </div>
             <div class="col dropdown">
                 <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
+                <RouterLink :to="{name:'marca-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
+                </RouterLink>
+                <RouterLink :to="{name:'marca-cadastrar-editar', query:{id:item.id,form:'editar'}}">
                     <button type="button" class="dropdown-item">Editar</button>
+                </RouterLink>
                 </div> 
             </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 2       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Bmw </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 3       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Volvo </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 4       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Fiat </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 5       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Audi </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        <div class="row itens">
-            <div class="col"> 6       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Porsche </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 7       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Fiat </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 8       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Ford </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
+        </div>  
     </div>
     
     </template>
     
     <script lang="ts">
     
-    
+    import { defineComponent } from 'vue';
+
+import MarcaClient from '@/client/MarcaClient';
+
+import { Marca } from '@/model/Marca';
+
+export default defineComponent({
+  name: 'MarcaLista',
+  data() {
+    return {
+        marcasList: new Array<Marca>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      MarcaClient.listaAll()
+        .then(sucess => {
+          this.marcasList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+  }
+});
+
     </script>
     
     <style scoped>

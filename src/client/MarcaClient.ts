@@ -19,6 +19,20 @@ export class MarcaClient{
             return Promise.reject(error.response)
         }
     }
+	public async listaAll(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Marca[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+	public async listaAllAtivos(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Marca[]>(`/lista/ativos`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
 	public async cadastrar(Marca: Marca): Promise<void> {
 		try {
@@ -51,5 +65,13 @@ export class MarcaClient{
 			return Promise.reject(error.response)
 		}
 	}
+	public async excluir(id: number): Promise<string> {
+        try {
+            return (await this.axiosClient.delete<string>(`/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
 }
+export default new MarcaClient();

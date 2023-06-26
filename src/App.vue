@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item menu-gap">
-          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista">Menu </router-link> </a>
+          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista"> Home </router-link> </a>
         </li>
 
         <li class="nav-item dropdown">
@@ -24,9 +24,9 @@
             <li><hr class="dropdown-divider"></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <routerLink to="/condutor-lista">Condutores</RouterLink></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/veiculo-lista">Veiculos </router-link></h2></li>
-            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/configuracao-form">Configurações </router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/configuracao-lista">Configurações </router-link></h2></li>
             <li><hr class="dropdown-divider"></li>
-            <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/lista-marca">Marca</router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/marca-lista">Marca</router-link></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/modelo-lista">Modelo </router-link></h2></li>
             
           </ul>
@@ -39,6 +39,13 @@
 </template>
 
 <style lang="scss">
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
