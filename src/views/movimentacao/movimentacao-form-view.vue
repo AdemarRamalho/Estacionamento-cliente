@@ -55,36 +55,22 @@
       <div class="col-md-3">
         <div class="d-grid gap-2">
           <button
-            v-if="this.form === undefined"
-            type="button"
+            v-if="this.form === undefined" type="button"
             class="btn btn-success"
-            @click="onClickCadastrar()"
-          >
-            Cadastrar
+            @click="onClickCadastrar()">Cadastrar
           </button>
           <button
-            v-if="this.form === 'editar'"
-            type="button"
-            class="btn btn-warning"
-            @click="onClickEditar()"
-          >
-            Editar
+            v-if="this.form === 'editar'" type="button"
+            class="btn btn-warning" @click="onClickEditar()">Editar
           </button>
           <button
-            v-if="this.form === 'excluir'"
-            type="button"
-            class="btn btn-danger"
-            @click="onClickExcluir()"
-          >
+            v-if="this.form === 'excluir'" type="button"
+            class="btn btn-danger" @click="onClickExcluir()">
             Excluir
           </button>
           <button
-            v-if="this.form === 'finalizar'"
-            type="button"
-            class="btn btn-success"
-            @click="onClickExcluir()"
-          >
-            finalizar
+            v-if="this.form === 'finalizar'" type="button"
+            class="btn btn-success" @click="onClickExcluir()">finalizar
           </button>
         </div>
       </div>

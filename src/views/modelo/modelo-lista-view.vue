@@ -6,13 +6,6 @@
                 <div class="col opcoes">
                     Lista de Modelos
                 </div>
-                <div class="col opcoes">  
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Listar por</option>
-                        <option value="1">Ativos</option>
-                        <option value="2">Desativados</option>
-                    </select>
-                </div>
                 <div class="col opcoes">
                     <router-link to='/modelo-form'>
                         <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Modelo</button>
@@ -29,113 +22,23 @@
             <div class="col"> Detalhes</div>
         </div>
     
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col">Civic</div>
-            <div class="col"> Honda </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
+        <div v-for="item in modelosList" :key="item.id" class="row itens">
+            <div class="col"> {{ item.id }}       </div>
+            <div class="col situacao">
+                <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+                <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
             </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 2       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> X4 </div>
-            <div class="col"> Bmw </div>
+            <div class="col">{{ item.nome }}</div>
+            <div class="col"> {{ item.marca.nome }} </div>
             <div class="col dropdown">
                 <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
+                <RouterLink :to="{name:'marca-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
+                </RouterLink>
+                <RouterLink :to="{name:'marca-cadastrar-editar', query:{id:item.id,form:'editar'}}">
                     <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 3       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XC40</div>
-            <div class="col"> Volvo </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 4       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Festback </div>
-            <div class="col"> Fiat </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 5       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> A4 </div>
-            <div class="col"> Audi </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        <div class="row itens">
-            <div class="col"> 6       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> 911 </div>
-            <div class="col"> Porsche </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 7       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Uno </div>
-            <div class="col"> Fiat </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 8       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Fusion </div>
-            <div class="col"> Ford </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
+                </RouterLink>
                 </div> 
             </div>
         </div>
