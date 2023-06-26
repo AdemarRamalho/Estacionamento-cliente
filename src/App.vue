@@ -26,7 +26,7 @@
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/veiculo-lista">Veiculos </router-link></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/configuracao-form">Configurações </router-link></h2></li>
             <li><hr class="dropdown-divider"></li>
-            <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/lista-marca">Marca</router-link></h2></li>
+            <li><h2  class="dropdown-item" href="#" id="nav-menu"><router-link to="/marca-lista">Marca</router-link></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/modelo-lista">Modelo </router-link></h2></li>
             
           </ul>

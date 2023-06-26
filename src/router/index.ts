@@ -9,62 +9,62 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/lista-marca',
-    name: 'marca-lista',
+    name: 'marca-lista-view',
     component:() => import('../views/marca/marca-lista-view.vue')
   },
 {
   path: '/form-marca',
-  name: 'marca-form',
+  name: 'marca-form-view',
   component:() => import('../views/marca/marca-form-view.vue')
 },
 {
 path: '/condutor-lista',
-name: 'condutor-lista',
+name: 'condutor-lista-view',
 component:() => import('../views/condutor/condutor-list-view.vue')
 },
 {
   path: '/condutor-form',
-  name: 'condutor-form',
+  name: 'condutor-form-view',
   component:() => import('../views/condutor/condutor-form-view.vue')
   },
 {
   path: '/configuracao-lista',
-  name: 'configuracao-lista',
+  name: 'configuracao-lista-view',
   component:() => import('../views/configuracao/configuracao-lista-view.vue')
 },
 {
   path: '/configuracao-form',
-  name: 'configuracao-form',
+  name: 'configuracao-form-view',
   component:() => import('../views/configuracao/configuracao-form-view.vue')
 },
 {
   path: '/modelo-lista',
-  name: 'modelo-lista',
+  name: 'modelo-lista-view',
   component:() => import('../views/modelo/modelo-lista-view.vue')
 },
 {
   path: '/modelo-form',
-  name: 'modelo-form',
+  name: 'modelo-form-view',
   component:() => import('../views/modelo/modelo-form-view.vue')
 },
 {
   path: '/movimentacao-lista',
-  name: 'movimentacao-lista',
+  name: 'movimentacao-lista-view',
   component:() => import('../views/movimentacao/movimentacao-lista-view.vue')
 },
 {
   path: '/movimentacao-form',
-  name: 'movimentacao-form',
+  name: 'movimentacao-form-view',
   component:() => import('../views/movimentacao/movimentacao-form-view.vue')
 },
 {
   path: '/veiculo-lista',
-  name: 'veiculo-lista',
+  name: 'veiculo-lista-view',
   component:() => import('../views/veiculo/veiculo-lista-view.vue')
 },
 {
   path: '/veiculo-form',
-  name: 'veiculo-form',
+  name: 'veiculo-form-view',
   component:() => import('../views/veiculo/veiculo-form-view.vue')
 },
 ]

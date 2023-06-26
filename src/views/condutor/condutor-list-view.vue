@@ -6,13 +6,6 @@
                 <div class="col opcoes">
                     Lista de Condutores
                 </div>
-                <div class="col opcoes">  
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Listar por</option>
-                        <option value="1">Ativos</option>
-                        <option value="2">Desativados</option>
-                    </select>
-                </div>
 
                 <div class="col opcoes">
                     <router-link to='/condutor-form'>
@@ -32,121 +25,62 @@
             
         </div>
     
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Ademar Ramalho </div>
-            <div class="col"> 190.132.187-84 </div>
-            <div class="col"> 21 996973149 </div>
+        <div v-for="item in condutorList" :key="item.id" class="row itens">
+            <div class="col"> {{ item.id }}      </div>
+            <div class="col situacao"> 
+                <span v-if="item.ativo" class="badge text-bg-success">Ativo</span>
+                <span v-if="!item.ativo" class="badge text-bg-danger">Inativo</span>
+            </div>
+            <div class="col"> {{ item.nome }} </div>
+            <div class="col"> {{item.cpf}} </div>
+            <div class="col"> {{item.telefone}} </div>
             <div class="col dropdown">
                 <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
+                <RouterLink :to="{name:'condutor-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
+                </RouterLink>
+                <RouterLink :to="{name:'condutor-cadastrar-editar', query:{id:item.id,form:'editar'}}">
                     <button type="button" class="dropdown-item">Editar</button>
+                </RouterLink>
                 </div> 
             </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 2      </div>
-            <div class="col situacao"> ativo </div>
-            <div class="col"> Gabriele Steinmetz </div>
-            <div class="col"> 200.556.887.99 </div>
-            <div class="col"> 45 990907070 </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 3       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Cristovão Martins </div>
-            <div class="col"> 667.886.889-87 </div>
-            <div class="col"> 45 94002-8922 </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 4       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Pedro Henrique </div>
-            <div class="col"> 102.558.778-00 </div>
-            <div class="col"> 45 997997799 </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 5       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Tailyne Martins </div>
-            <div class="col"> 558.885.669.69 </div>
-            <div class="col"> 45 996699887 </div>
-            <div class="col dropdown">
-                    <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 6       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> De Arrascaeta </div>
-            <div class="col"> 874.478.587-54 </div>
-            <div class="col"> 21 985236985 </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 7       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> Gabriel Barbosa </div>
-            <div class="col"> 852.258.741-96 </div>
-            <div class="col"> 21 963254125 </div>
-            <div class="col dropdown">
-                <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
-                <div class="dropdown-menu">
-                    <button class="dropdown-item">Excluir</button>
-                    <button type="button" class="dropdown-item">Editar</button>
-                </div> 
-            </div>
-        </div>
-    
-
+        </div>    
     </div>
     
-    </template>
+</template>
     
-    <script lang="ts">
+<script lang="ts">
+
+    import { defineComponent } from 'vue';
+    import { Condutor } from '@/model/Condutor';
+    import  CondutorClient  from '@/client/CondutorClient';
+
+    export default defineComponent({
+    name: 'CondutorLista',
+    data() {
+        return {
+            condutorList: new Array<Condutor>()
+        }
+    },
+    mounted() {
+        this.findAll();
+    },
+    methods: {
+        findAll() {
+        CondutorClient.listaAll()
+            .then(sucess => {
+            this.condutorList = sucess
+            })
+            .catch(error => {
+            console.log(error);
+            });
+        },
+    }
+    });
+</script>
     
-    </script>
-    
-    <style scoped>
+<style scoped>
     
     .tabela{
         margin-top: 2vw;
@@ -206,6 +140,7 @@
         margin-top: 2vw;
         font-size: 4vh;
         font-weight: bolder;
+        margin-left: 8%;
     }
     
     
@@ -223,4 +158,4 @@
         margin-right: 1vh;
     }
     
-    </style>
+</style>

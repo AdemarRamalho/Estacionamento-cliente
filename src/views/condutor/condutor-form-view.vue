@@ -5,22 +5,35 @@
                 <div class="row">
                     <div class="col-md-4 offset-2">
                         <label>Nome</label>
-                        <input type="text" class="form-control" placeholder="Digite seu nome">
+                        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.nome" placeholder="Digite seu nome">
                     </div>
                     <div class="col-md-4">
                         <label>Telefone</label>
-                        <input type="text" class="form-control" placeholder="Digite seu telefone">
+                        <input type="text" :disabled="this.form === 'excluir' ? '' :disabled" class="form-control" v-model="condutor.telefone" placeholder="Digite seu telefone">
                     </div>
                 </div>
                 <div class="row coluna-nome">
                     <div class="col-md-4 offset-4">
                         <label>CPF</label>
-                        <input type="text" class="form-control" placeholder="Digite Seu CPF">
+                        <input type="text" :disabled="this.form === 'excluir' ? '' :disabled" class="form-control" v-model="condutor.cpf" placeholder="Digite Seu CPF">
                     </div>
                 </div>
-                <div class="col offset-9 botao-enviar">
-                        <button type="submit" class="btn btn-primary mb-2">Cadastrar</button>
+                <div class="col botao-enviar">
+                       <routerLink to="/condutor-lista">
+                       <button type="submit" class="btn btn-primary mb-2">Voltar</button>
+                       </routerlink>
+                       <button type="submit" v-if="this.form === 'editar'"
+                       class="btn btn-warning mb-2" @click="onClickEditar">Editar
+                       </button>
+                       <button v-if="this.form === 'excluir'" type="submit" 
+                          class="btn btn-danger mb-2" @click="onClickExcluir()">Excluir
+                        </button>
+                        <button v-if="this.form === undefined" type="submit" 
+                          class="btn btn-success mb-2" @click="onClickCadastrar()">Cadastrar
+                        </button>
+                        
                 </div>
+
             </form>
     </div>
 </template>
@@ -142,5 +155,7 @@ export default defineComponent({
 <style lang="scss">
     .botao-enviar{
         margin-top: 4%;
+        display: flex;
+        justify-content: space-around;
     }
 </style>
