@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item menu-gap">
-          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista">Menu </router-link> </a>
+          <a class="nav-link active" id="cor-texto" aria-current="page" href="#"> <router-link to="movimentacao-lista"> Home </router-link> </a>
         </li>
 
         <li class="nav-item dropdown">
