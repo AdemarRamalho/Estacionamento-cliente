@@ -19,6 +19,20 @@ export class ModeloClient{
             return Promise.reject(error.response)
         }
     }
+	public async listaAll(): Promise<any[]> {
+        try {
+            return (await this.axiosClient.get<Modelo[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+	public async listaAllAtivos(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Modelo[]>(`/lista/ativos`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
 	public async cadastrar(Modelo: Modelo): Promise<void> {
 		try {

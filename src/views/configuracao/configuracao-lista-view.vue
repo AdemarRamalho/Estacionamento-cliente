@@ -41,10 +41,10 @@
                 <div class="col dropdown">
                     <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
-                <RouterLink :to="{name:'condutor-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
+                <RouterLink :to="{name:'configuraca-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
                 </RouterLink>
-                <RouterLink :to="{name:'condutor-cadastrar-editar', query:{id:item.id,form:'editar'}}">
+                <RouterLink :to="{name:'configuracao-cadastrar-editar', query:{id:item.id,form:'editar'}}">
                     <button type="button" class="dropdown-item">Editar</button>
                 </RouterLink>
                 </div> 
