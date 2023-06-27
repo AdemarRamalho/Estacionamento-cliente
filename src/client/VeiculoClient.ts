@@ -1,18 +1,21 @@
+
+import { Marca } from "@/model/Marca";
+import { Modelo } from "@/model/Modelo";
 import { Veiculo } from "@/model/Veiculo";
 import axios, { AxiosInstance } from "axios";
 
-export class VeiculoClient{
+class VeiculoClient {
 
-    private axiosClient: AxiosInstance;
+    private axiosClient : AxiosInstance
 
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/veiculo',
+            baseURL: 'http://localhost:8080/api/veiculos',
             headers: {'Content-type' : 'application/json'}
         });
     }
 
-    public async findById(id: number) : Promise<Veiculo> {
+    public async findById(id: number): Promise<Veiculo> {
         try {
             return (await this.axiosClient.get<Veiculo>(`/${id}`)).data
         } catch (error:any) {
@@ -20,7 +23,7 @@ export class VeiculoClient{
         }
     }
 
-	public async listaAll(): Promise<any[]> {
+    public async listaAll(): Promise<any[]> {
         try {
             return (await this.axiosClient.get<Veiculo[]>(`/lista`)).data
         } catch (error:any) {
@@ -36,45 +39,27 @@ export class VeiculoClient{
         }
     }
 
-	public async cadastrar(Veiculo: Veiculo): Promise<void> {
-		try {
-			return (await this.axiosClient.post('/', Veiculo))
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-
-	public async editar(Veiculo: Veiculo): Promise<void> {
-		try {
-			return (await this.axiosClient.put(`/${Veiculo.id}`, Veiculo)).data
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-
-	public async desativar(Veiculo: Veiculo): Promise<void> {
-		try {
-			return (await this.axiosClient.put(`/desativar/${Veiculo.id}`, Veiculo)).data
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-	
-
-    public async ativar(Veiculo: Veiculo): Promise<void> {
-		try {
-			return (await this.axiosClient.put(`/ativar/${Veiculo.id}`, Veiculo)).data
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-	public async excluir(id: number): Promise<string> {
+    public async cadastrar(veiculo: Veiculo): Promise<string> {
         try {
-            return (await this.axiosClient.delete<string>(`/${id}`)).data
+            return (await this.axiosClient.post<string>(``, veiculo)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
     }
-
+    public async editar(id: number, veiculo: Veiculo): Promise<string> {
+        try {
+            return (await this.axiosClient.put<string>(`/${id}`, veiculo)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+    public async excluir(id: number): Promise<string> {
+        try {
+            return (await this.axiosClient.put<string>(`/desativar/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 }
+
 export default new VeiculoClient();

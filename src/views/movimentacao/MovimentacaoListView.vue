@@ -1,21 +1,12 @@
 <template>
-
-
 <div class="container tabela">
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col opcoes">
                 Lista de Movimentações
             </div>
-            <div class="col opcoes">  
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Listar por</option>
-                    <option value="1">Ativos</option>
-                    <option value="2">Desativados</option>
-                </select>
-            </div>
             <div class="col opcoes">
-                <Router-link to='/movimentacao-form'>
+                <Router-link to='/movimentacao-cadastrar'>
                     <button type="button" class="btn btn-success ">Adicionar Movimentação</button>
                 </Router-link>
             </div>
@@ -28,6 +19,7 @@
         <div class="col"> Condutor </div>
         <div class="col"> Veiculo </div>
         <div class="col"> Placa </div>
+        <div class="col"> Entrada </div>
         <div class="col"> Opções </div>
     </div>
 
@@ -38,10 +30,10 @@
             <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
         </div>
         <div class="col"> {{ item.condutor.nome }} </div>
-        <div class="col"> {{ item.veiculo.nome }} </div>
+        <div class="col"> {{ item.veiculo.modelo.nome }} </div>
         <div class="col"> {{ item.veiculo.placa }} </div>
         <div class="col"> {{ item.entrada }} </div>
-        <RouterLink :to="{name: 'movimentacao-cadastrar-finalizar', query:{id:item.id,form:'finalizar'}}">
+        <RouterLink class="col" :to="{name: 'movimentacao-cadastrar-finalizar', query:{id:item.id,form:'finalizar'}}">
             <button type="submit" class="btn btn-danger botao" role="button" data-bs-toggle="dropdown" aria-expanded="false">Finalizar</button>
         </RouterLink>
     </div>
@@ -50,9 +42,34 @@
 </template>
 
 <script lang="ts">
-import { RouterLink } from 'vue-router';
 
+import { defineComponent } from 'vue';
+import { Movimentacao } from '@/model/Movimentacao';
+import  MovimentacaoClient  from '@/client/MovimentacaoClient';
 
+export default defineComponent({
+  name: 'MovimentacaoLista',
+  data() {
+    return {
+        movimentacaoList: new Array<Movimentacao>(),
+        movimentacao : new Movimentacao()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+    findAll() {
+      MovimentacaoClient.listaAll()
+        .then(sucess => {
+          this.movimentacaoList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+  }
+});
 
 </script>
 

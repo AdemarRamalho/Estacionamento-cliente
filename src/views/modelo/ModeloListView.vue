@@ -4,18 +4,11 @@
         <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col opcoes">
-                    Lista de Marcas
-                </div>
-                <div class="col opcoes">  
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Listar por</option>
-                        <option value="1">Ativos</option>
-                        <option value="2">Desativados</option>
-                    </select>
+                    Lista de Modelos
                 </div>
                 <div class="col opcoes">
-                    <router-link to='/form-marca'>
-                        <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Marca</button>
+                    <router-link to='/form-modelo-lista'>
+                        <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Modelo</button>
                     </router-link>
                 </div>
             </div>
@@ -24,66 +17,65 @@
         <div class="row inicio">
             <div class="col"> ID       </div>
             <div class="col"> Situação </div>
-            <div class="col"> Nome </div>
+            <div class="col"> Modelo </div>
+            <div class="col">Marca</div>
             <div class="col"> Detalhes</div>
         </div>
     
-        <div v-for="item in marcasList" :key="item.id" class="row itens">
+        <div v-for="item in modelosList" :key="item.id" class="row itens">
             <div class="col"> {{ item.id }}       </div>
             <div class="col situacao">
                 <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
                 <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
             </div>
-            <div class="col"> {{item.nome}} </div>
+            <div class="col">{{ item.nome }}</div>
+            <div class="col"> {{ item.marca.nome }} </div>
             <div class="col dropdown">
                 <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
-                <RouterLink :to="{name:'marca-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
+                <RouterLink :to="{name:'modelo-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
                 </RouterLink>
-                <RouterLink :to="{name:'marca-cadastrar-editar', query:{id:item.id,form:'editar'}}">
+                <RouterLink :to="{name:'modelo-cadastrar-editar', query:{id:item.id,form:'editar'}}">
                     <button type="button" class="dropdown-item">Editar</button>
                 </RouterLink>
                 </div> 
             </div>
-        </div>  
+        </div>
     </div>
     
     </template>
     
-    <script lang="ts">
-    
+<script lang="ts">
     import { defineComponent } from 'vue';
+    import { Modelo } from '@/model/Modelo';
+    import  ModeloClient  from '@/client/ModeloClient';
 
-import MarcaClient from '@/client/MarcaClient';
-
-import { Marca } from '@/model/Marca';
-
-export default defineComponent({
-  name: 'MarcaLista',
-  data() {
-    return {
-        marcasList: new Array<Marca>()
-    }
-  },
-  mounted() {
-    this.findAll();
-  },
-  methods: {
-
-    findAll() {
-      MarcaClient.listaAll()
-        .then(sucess => {
-          this.marcasList = sucess
-        })
-        .catch(error => {
-          console.log(error);
-        });
+    export default defineComponent({
+    name: 'ModeloLista',
+    data() {
+        return {
+            modelosList: new Array<Modelo>()
+        }
     },
-  }
-});
+    mounted() {
+        this.findAll();
+    },
+    methods: {
+        findAll() {
+        ModeloClient.listaAll()
+            .then(sucess => {
+            this.modelosList = sucess
+            })
+            .catch(error => {
+            console.log(error);
+            });
+        },
+    }
+    });
 
-    </script>
+    
+</script>
     
     <style scoped>
     

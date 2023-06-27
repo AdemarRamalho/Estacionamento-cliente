@@ -140,7 +140,6 @@
   import VeiculoClient from "@/client/VeiculoClient";
   import { Cor } from "@/model/Cor";
   import { Modelo } from "@/model/Modelo";
-  import { Tipo } from "@/model/Tipo";
   import { Veiculo } from "@/model/Veiculo";
   import { defineComponent } from "vue";
   

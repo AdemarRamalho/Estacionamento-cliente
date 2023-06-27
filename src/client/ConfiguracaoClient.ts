@@ -1,9 +1,12 @@
+
+import { Condutor } from "@/model/Condutor";
 import { Configuracao } from "@/model/Configuracao";
+import { Marca } from "@/model/Marca";
 import axios, { AxiosInstance } from "axios";
 
-export class ConfiguracaoClient{
+class ConfiguracaoClient {
 
-    private axiosClient: AxiosInstance;
+    private axiosClient : AxiosInstance
 
     constructor() {
         this.axiosClient = axios.create({
@@ -12,7 +15,7 @@ export class ConfiguracaoClient{
         });
     }
 
-    public async findById(id: number) : Promise<Configuracao> {
+    public async findById(id: number): Promise<Configuracao> {
         try {
             return (await this.axiosClient.get<Configuracao>(`/${id}`)).data
         } catch (error:any) {
@@ -20,16 +23,26 @@ export class ConfiguracaoClient{
         }
     }
 
-	public async cadastrar(Configuracao: Configuracao): Promise<void> {
-		try {
-			return (await this.axiosClient.post('/', Configuracao))
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
     public async listaAll(): Promise<any> {
         try {
             return (await this.axiosClient.get<Configuracao[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+
+   
+
+    public async cadastrar(configuracao: Configuracao): Promise<string> {
+        try {
+            return (await this.axiosClient.post<string>(``, configuracao)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+    public async editar(id: number, configuracao: Configuracao): Promise<string> {
+        try {
+            return (await this.axiosClient.put<string>(`/${id}`, configuracao)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -41,14 +54,6 @@ export class ConfiguracaoClient{
             return Promise.reject(error.response)
         }
     }
-
-	public async editar(Configuracao: Configuracao): Promise<void> {
-		try {
-			return (await this.axiosClient.put(`/${Configuracao.id}`, Configuracao)).data
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-
 }
+
 export default new ConfiguracaoClient();

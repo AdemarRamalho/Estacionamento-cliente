@@ -20,7 +20,7 @@
 
       <div class="row">
         <div class="col-md-6 text-start">
-          <label>Condutores </label> <br />
+          <label>Condutor</label> <br />
           <select class="form-select" v-model="movimentacao.condutor">
             <option v-for="item in condutoresList" :key="item.id" :value="item">
               {{ item.nome }}
@@ -28,10 +28,10 @@
           </select>
         </div>
         <div class="col-md-6">
-          <label>Veiculos </label> <br />
+          <label> Placa </label> <br />
           <select class="form-select" v-model="movimentacao.veiculo">
             <option v-for="item in veiculosList" :key="item.id" :value="item">
-              {{ item }}
+              {{ item.placa }}
             </option>
           </select>
         </div>

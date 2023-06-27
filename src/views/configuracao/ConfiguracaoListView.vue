@@ -15,33 +15,41 @@
   
       <div class="row">
         <div class="col-md-12">  
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-secondary" >
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Ativo</th>
-                <th scope="col">ValorHora</th>
-                <th scope="col">inicioExpediente</th>
-                <th scope="col"> fimExpediente</th>
+                <th scope="col">Valor Hora</th>
+                <th scope="col">inicio Expediente</th>
+                <th scope="col"> fim Expediente</th>
+                <th scope="col">valor Minuto Multa</th>
+                <th scope="col"> Vagas Moto</th>
+                <th scope="col"> Vagas Carro</th>
+                <th scope="col"> Vagas Van</th>
                 <th scope="col">Opção</th>
               </tr>
             </thead>  
             <tbody class="table-group-divider">
               
               <tr v-for="item in configuracaoList" :key="item.id">
-                <th class="col-md-1">{{ item.id }}</th>              
-                <th class="col-md-2"> 
+                <th class="col">{{ item.id }}</th>              
+                <th class="col"> 
                   <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
                   <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
                 </th>
                 <th class ="col-md-2">{{item.valorHora}}</th>
                 <th class="text-start">{{ item.inicioExpediente }}</th>
                 <th class="text-start">{{ item.fimExpediente }}</th>
+                <th class="text-start">{{ item.valorMinutoMulta }}</th>
+                <th class="text-start">{{ item.vagasMoto }}</th>
+                <th class="text-start">{{ item.vagasCarro }}</th>
+                <th class="text-start">{{ item.vagasVan }}</th>
                 <th class="col-md-2">
                 <div class="col dropdown">
                     <button type="submit" class="btn btn-outline-warning botao dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>   
                 <div class="dropdown-menu">
-                <RouterLink :to="{name:'configuraca-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
+                <RouterLink :to="{name:'configuracao-cadastrar-excluir', query:{id: item.id,form:'excluir'}}">
                     <button class="dropdown-item">Excluir</button>
                 </RouterLink>
                 <RouterLink :to="{name:'configuracao-cadastrar-editar', query:{id:item.id,form:'editar'}}">
