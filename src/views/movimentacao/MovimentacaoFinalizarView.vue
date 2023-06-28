@@ -9,8 +9,10 @@
         </div>
       </div>
       <div>
+        <router-link to="/movimentacao-listarInativos">
           <button @click="onClickEditar">Finalizar</button>
-      </div>
+        </router-link>
+        </div>
   
       <div class="d-grid gap-2">
             <router-link type="button" class="btn btn-info" 

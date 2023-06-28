@@ -3,7 +3,7 @@
     <div class="container" style="margin-top: 10px;">
   
       <div class="row">
-        <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Movimentacoes Ativas</p> </div>
+        <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Movimentacoes Finalizadas</p> </div>
         <div class="col-md-2"> 
           <div class="d-grid gap-2">
             <router-link type="button" class="btn btn-success" 
@@ -15,15 +15,16 @@
   
       <div class="row">
         <div class="col-md-12">  
-          <table class="table">
-            <thead class="table-secondary" >
+          <table class="table table-bordered">
+            <thead class="table-secondary " >
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Ativo</th>
+                <th scope="col">Status</th>
                 <th scope="col">Condutor</th>
                 <th scope="col">Veiculo</th>
                 <th scope="col">Entrada</th>
-                <th scope="col">Opção</th>
+                <th scope="col">Saida</th>
+                <th scope="col">Valor</th>
               </tr>
             </thead>  
             <tbody class="table-group-divider">
@@ -36,24 +37,10 @@
                 <th class="col-md1">{{item.condutor.nome}}</th>
                 <th class="col-md1">{{item.veiculo.placa}}</th>
                 <th class="col-md1" >{{ item.entrada}}</th>
-                
-                <th class="col-md-2">
-                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                      <RouterLink type="button" class="btn text-align-center col-md-2" 
-                        :to="{name: 'movimentacao-cadastrar-editar', query: {id: item.id, form: 'editar'}}">
-                        <span class="badge bg-warning btn text-align-center col">EDITAR</span>
-                      </RouterLink>
-                      <RouterLink type="button" class="btn text-align-center col-md-2" 
-                        :to="{name: 'movimentacao-cadastrar-excluir', query: {id: item.id, form: 'excluir'}}">
-                        <span class="badge bg-danger btn text-align-center col">EXCLUIR</span>
-                      </RouterLink>
-                       <RouterLink type="button" class="btn text-align-center col-md-2" 
-                        :to="{name: 'movimentacao-cadastrar-finalizar', query: {id: item.id, form: 'finalizar'}}">
-                        <span class="badge bg-success btn text-align-center col">Finalizar</span>
-                      </RouterLink>
-  
-                  </div>
-                </th>
+                <th class="col-md1" >{{ item.saida}}</th>
+                <th class="col-md1" >{{ item.valorTotal}}R$</th>
+
+
               </tr>
             </tbody>
           </table>
@@ -82,7 +69,7 @@
     },
     methods: {
       findAll() {
-        MovimentacaoClient.listaAllAtivos()
+        MovimentacaoClient.listaInativos()
           .then(sucess => {
             this.movimentacaoList = sucess
           })

@@ -20,7 +20,7 @@
             Itens
           </a>
           <ul class="dropdown-menu" >
-            <li><h2 class="dropdown-item" href="#" id="nav-menu"> <router-link to="/movimentacao-lista">Movimentações </router-link> </h2> </li>
+            <li><h2 class="dropdown-item" href="#" id="nav-menu"> <router-link to="/movimentacao-listarInativos">Movimentações </router-link> </h2> </li>
             <li><hr class="dropdown-divider"></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <routerLink to="/condutor-lista">Condutores</RouterLink></h2></li>
             <li><h2  class="dropdown-item" href="#" id="nav-menu"> <router-link to="/veiculo-lista">Veiculos </router-link></h2></li>
@@ -74,5 +74,9 @@ nav {
   }
   #cor-texto{
     color: white;
+  }
+  .cor-home{
+    background-color: white;
+    border-radius: 10px;
   }
 </style>

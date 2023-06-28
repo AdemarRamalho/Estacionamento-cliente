@@ -37,6 +37,13 @@ class MovimentacaoClient {
             return Promise.reject(error.response)
         }
     }
+    public async listaInativos(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Movimentacao[]>(`/lista/inativos`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
     public async cadastrar(movimentacao: Movimentacao): Promise<string> {
         try {

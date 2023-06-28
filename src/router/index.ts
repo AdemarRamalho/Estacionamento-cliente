@@ -144,6 +144,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'movimentacao-cadastrar-finalizar',
     component: () => import(/* webpackChunkName: "about" */ '../views/movimentacao/MovimentacaoFinalizarView.vue'),
   },
+  {
+    path: '/movimentacao-listarInativos',
+    name: 'movimentacao-ativas-finalizar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/movimentacao/MovimentacaoListaAtivaView.vue'),
+  },
   
   
 ]

@@ -31,7 +31,7 @@
           <label> Placa </label> <br />
           <select class="form-select" v-model="movimentacao.veiculo">
             <option v-for="item in veiculosList" :key="item.id" :value="item">
-              {{ item.placa }}
+              {{ item.placa }} - {{ item.modelo.nome }}
             </option>
           </select>
         </div>
@@ -66,7 +66,7 @@
           </button>
           <button
             v-if="this.form === 'finalizar'" type="button"
-            class="btn btn-success" @click="onClickExcluir()">finalizar
+            class="btn btn-success" @click="onClickFinalizar()">finalizar
           </button>
         </div>
       </div>
@@ -200,6 +200,22 @@
           })
           .catch((error) => {
             console.log(error);
+          });
+      },
+      onClickFinalizar(){
+        MovimentacaoClient.finalizarMov(this.movimentacao.id)
+          .then(sucess => {
+            this.movimentacao = new Movimentacao()
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = sucess;
+            this.mensagem.titulo = "Parabens. ";
+            this.mensagem.css = "alert alert-success alert-dismissible fade show";
+          })
+          .catch(error => {
+            this.mensagem.ativo = true;
+            this.mensagem.mensagem = error;
+            this.mensagem.titulo = "Error. ";
+            this.mensagem.css = "alert alert-danger alert-dismissible fade show";
           });
       },
     },

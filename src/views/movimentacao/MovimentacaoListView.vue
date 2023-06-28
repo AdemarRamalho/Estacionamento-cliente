@@ -34,7 +34,7 @@
         <div class="col"> {{ item.veiculo.placa }} </div>
         <div class="col"> {{ item.entrada }} </div>
         <RouterLink class="col" :to="{name: 'movimentacao-cadastrar-finalizar', query:{id:item.id,form:'finalizar'}}">
-            <button type="submit" class="btn btn-danger botao" role="button" data-bs-toggle="dropdown" aria-expanded="false">Finalizar</button>
+            <button type="submit" class="btn btn-danger botao" role="button"  aria-expanded="false">Finalizar</button>
         </RouterLink>
     </div>
 </div>
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   methods: {
     findAll() {
-      MovimentacaoClient.listaAll()
+      MovimentacaoClient.listaAllAtivos()
         .then(sucess => {
           this.movimentacaoList = sucess
         })
